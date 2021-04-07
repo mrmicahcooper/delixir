@@ -2,11 +2,25 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: delixir
+  name: delixir-nodes
+  namespace: default
 spec:
+  clusterIP: None
   selector:
     app: delixir
   ports: 
+  - name: epmd
+    port: 4369
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: delixir
+  namespace: default
+spec:
+  selector:
+    app: delixir
+  ports:
   - protocol: TCP
     port: 80
     targetPort: 4000
@@ -26,6 +40,7 @@ spec:
       labels:
         app: delixir
     spec:
+      setHostnameAsFQDN: true
       containers:
       - name: delixir
         image: mrmicahcooper/delixir
