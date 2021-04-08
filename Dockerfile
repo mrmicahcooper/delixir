@@ -30,8 +30,9 @@ RUN mix phx.digest
 # compile and build release
 COPY lib lib
 # uncomment COPY if rel/ exists
-# COPY rel rel
-RUN mix do compile, release
+COPY rel rel
+RUN mix compile
+RUN mix release
 
 # prepare release image
 FROM alpine:3.9 AS app

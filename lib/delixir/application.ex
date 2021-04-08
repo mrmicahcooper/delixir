@@ -6,15 +6,26 @@ defmodule Delixir.Application do
   use Application
 
   def start(_type, _args) do
+    topologies = [
+      main: [
+        strategy: Cluster.Strategy.Kubernetes.DNS,
+        config: [
+          service: "delixir-nodes",
+          application_name: "delixir"
+        ]
+      ]
+    ]
+
     children = [
       # Start the Telemetry supervisor
       DelixirWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Delixir.PubSub},
       # Start the Endpoint (http/https)
-      DelixirWeb.Endpoint
+      DelixirWeb.Endpoint,
       # Start a worker by calling: Delixir.Worker.start_link(arg)
       # {Delixir.Worker, arg}
+      {Cluster.Supervisor, [topologies, [name: Delixir.ClusterSupervisor]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
