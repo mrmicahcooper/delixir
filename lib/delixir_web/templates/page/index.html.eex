@@ -1,12 +1,14 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
-</section>
+  <h1>Delixir</h1>
+  <p>Distributed Elixir for fun and profit</p>
+  <h3>Current Elixir Node</h3>
+  <p><%=@node%></p>
+  <h3>Other connected Nodes</h3>
+  <%= for item <- @nodes do %>
+    <li> <%=item%> </li>
+  <%end%>
 
-<section>
-  self: <%=@node%>
-  <br/>
-  node list: <%=@nodes%>
+
 </section>
 
 <section class="row">
@@ -14,18 +16,18 @@
     <h2>Resources</h2>
     <ul>
       <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
+        <a href="chttps://medium.com/kloeckner-i/elixir-process-orchestration-in-kubernetes-with-libcluster-and-swarm-c741ab8b57c7">Medium article that helped me</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
+        <a href="https://github.com/phoenixframework/phoenix">Phoenix Source</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
+        <a href="https://hexdocs.pm/libcluster/Cluster.Strategy.Kubernetes.html#content">libcluster docs</a>
       </li>
     </ul>
   </article>
   <article class="column">
-    <h2>Help</h2>
+    <h2>More</h2>
     <ul>
       <li>
         <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
