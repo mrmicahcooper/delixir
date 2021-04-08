@@ -1,5 +1,5 @@
 <section class="phx-hero">
-  <h1>Delixir</h1>
+  <h1>Delixir <%=Delixir.Counter.show()%></h1>
   <p>Distributed Elixir for fun and profit</p>
   <h3>Current Elixir Node</h3>
   <p><%=@node%></p>
