@@ -2,13 +2,9 @@
   <h1>Delixir <%=Delixir.Counter.show()%></h1>
   <p>Distributed Elixir for fun and profit</p>
   <h3>Current Elixir Node</h3>
-  <p><%=@node%></p>
+  <p><%=node()%></p>
   <h3>Other connected Nodes</h3>
-  <%= for item <- @nodes do %>
-    <li> <%=item%> </li>
-  <%end%>
-
-
+  <%= for item <- Node.list(), do: "<li>#{item}</li>"%>
 </section>
 
 <section class="row">
