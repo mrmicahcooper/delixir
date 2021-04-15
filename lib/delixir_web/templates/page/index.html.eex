@@ -4,7 +4,11 @@
   <h3>Current Elixir Node</h3>
   <p><%= node() %></p>
   <h3>Other connected Nodes</h3>
-  <%= for item <- Node.list(), do: "<li>#{item}</li>"%>
+  <ul>
+  <%= for item <- Node.list() do %>
+    <li><%=item%></li>
+  <%end%>
+  </ul>
 </section>
 
 <section class="row">
