@@ -12,9 +12,3 @@ spec:
       - backend:
           serviceName: delixir
           servicePort: 80
-  - host: foo.clank.us
-    http:
-      paths:
-      - backend:
-          serviceName: delixir
-          servicePort: 80
